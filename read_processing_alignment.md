@@ -1,9 +1,30 @@
 # Read Processing and Alignment
 
-After de-multiplexing and removing barcodes with SnoWhite v2.0.3 (Dlugosch et al. 2013), reads were filtered and trimmed using <i>process_radtags</i> v2.60 from Stacks.
+Reads were demultiplexed and filtered using <i>process_radtags</i> v2.60 from Stacks (citation) and subsequently trimmed using Trim Galore vX (citation).
 
 ```
-process_radtags -1 sample_R1.fastq -2 sample_R2.fastq -o ./stacks_out -c -q -r -e pstI --renz-2 mseI
+#Demultiplex and filter reads
+process_radtags -1 rawsequences_R1.fastq \
+-2	rawsequences_R2.fastq \
+-b 	barcodes.tsv \
+-r -c -q \
+-e pstI --renz-2 mseI --disable-rad-check \
+--inline-inline \
+-o demultiplexed_reads
+
+#Trim reads
+trim_galore --fastqc --paired -q 20 -o trimmed_reads/ sample_R1.fq sample_R2.fq
+```
+The quality of the demultiplexed reads before and after trimming was assessed using FastQC (citation) and visualized with MultiQC (citation).
+
+```
+# Run FastQC on demultiplexed reads 
+fastqc ./demultiplexed reads/*
+multiqc ./demultiplexed reads
+
+# Run Fast QC on trimmed reads
+fastqc ./trimmed_reads/*
+multiqc ./trimmed_reads
 ```
 
 Reads were then aligned to the P. recurvata reference chromosomes (Northing et al. <i>in review</i>) using the <i>mem</i> function in BWA (citation).
