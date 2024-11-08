@@ -27,7 +27,7 @@ fastqc ./trimmed_reads/*
 multiqc ./trimmed_reads
 ```
 
-Reads were then aligned to the P. recurvata reference chromosomes (Northing et al. <i>in review</i>) using the <i>mem</i> function in BWA (citation).
+Reads were then aligned to the <i>P. recurvata</i> reference chromosomes (Northing et al. <i>in review</i>) using the <i>mem</i> function in BWA (citation).
 ```
 #First, make an index of the reference chromosomes that we align reads to
 bwa index -p pere_chrs pere_chrs.fasta
