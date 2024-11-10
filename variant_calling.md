@@ -3,7 +3,7 @@
 
 # Generating statistics on raw variant file:
 
-Adopted from [jrick course guide](https://jessicarick.github.io/bioinformatics-for-conservation/docs/folder/5-variant-filtering/) & using VCFtools vX (citation). 
+Adopted from [jrick course guide](https://jessicarick.github.io/bioinformatics-for-conservation/docs/folder/5-variant-filtering/) & using VCFtools v0.1.16 (citation). 
 
 ```
 # mean depth per individual
