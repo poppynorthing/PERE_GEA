@@ -33,7 +33,7 @@ Reads were then aligned to the <i>P. recurvata</i> reference chromosomes (Northi
 bwa index -p pere_chrs pere_chrs.fasta
 
 mkdir reference
-cp *pere_chrs* ~/reference
+cp *pere_chrs* ./reference
 
 #Align reads to reference chromosomes. 
 bwa mem reference/pere_chrs sample_R1 sample_R2 > sample.sam
