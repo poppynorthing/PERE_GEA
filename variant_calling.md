@@ -1,9 +1,13 @@
-# variant calling
-[fill in]
+# Variant Calling
+Variants were called from the alignments (and indices) generated in read_processing_alignment.md using <i>mpileup</i> from BCFtools vX (citation). 
+
+```
+bcftools mpileup -Ou -a AD,DP -d 1000 -f pere_chrs.fa ../alignment/final_alignments_subset/*.sorted.bam | bcftools call -m -v -Ov -o pere_raw_variants.vcf
+```
 
 # Generating statistics on raw variant file:
 
-Adopted from [jrick course guide](https://jessicarick.github.io/bioinformatics-for-conservation/docs/folder/5-variant-filtering/) & using VCFtools v0.1.16 (citation). 
+Variant statistics were generated using multiple commands from vcftools vX (citation). Code below adopted from [Jessica Rick](https://jessicarick.github.io/bioinformatics-for-conservation/docs/folder/5-variant-filtering/). 
 
 ```
 # mean depth per individual
